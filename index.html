@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Together - منصة التعليم الإلكتروني</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* الأساسيات */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #4fc3f7;
+            --secondary: #81c784;
+            --accent: #ffe082;
+            --dark: #2e7d32;
+            --light: #f4f9f9;
+            --text: #333;
+            --text-light: #666;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+            padding-top: 90px;
+            transition: all 0.3s ease;
+        }
+        
+        body[dir="ltr"] {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* الهيدر */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+        }
+        
+        .brand .logo img {
+            width: 140px;
+            height: 60px;
+            border-radius: 4px;
+            margin-left: 15px;
+            border: 2px solid white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+        }
+        
+        .brand h1 {
+            font-size: 1.8rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        
+        nav a, nav button {
+            margin: 0 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+        
+        nav a:hover, nav button:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        #ai-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid white;
+        }
+        
+        #ai-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* المحتوى الرئيسي */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        h2 {
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.7rem;
+            text-align: center;
+            font-size: 1.9rem;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 0.9rem 1.8rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-weight: bold;
+            margin-top: 10px;
+             margin-left: 400px;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-btn i {
+            margin-left: 8px;
+            font-size: 1.2rem;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #1da851;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+        }
+        
+        /* قسم البطل */
+        .hero {
+            text-align: center;
+            padding: 10rem 2rem; /* بدل 4rem - زود المسافة الطولية */
+            background: linear-gradient(rgba(79, 195, 247, 0.1), rgba(129, 199, 132, 0.1)),
+                        url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            border-radius: 12px;
+            color: var(--dark);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+
+
+        
+        
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            border: none;
+            color: var(--dark);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: var(--text);
+            text-align: center;
+        }
+        
+        /* معرض الصور */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin: 2.5rem 0;
+        }
+        
+        .gallery-item {
+            width: 320px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-caption {
+            padding: 1.2rem;
+            background: white;
+            text-align: center;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        /* كورسات */
+        .courses-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+        
+        .course-card {
+            width: 320px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .course-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .course-content {
+            padding: 1.5rem;
+        }
+        
+        .course-content h3 {
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+        
+        .course-content p {
+            color: var(--text-light);
+            font-size: 1rem;
+            text-align: center;
+        }
+        
+        /* الفريق */
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 2rem 0;
+        }
+        
+        .team-member {
+            text-align: center;
+            width: 250px;
+            padding: 1.5rem;
+            background: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .team-member img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .team-member h3 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-member .role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+        
+        .team-member .bio {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .social-links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-size: 1rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        /* الفيديو */
+        .video-container {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .video-wrapper iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+        
+        /* نموذج الاتصال */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+        }
+        
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: #039be5;
+        }
+        
+        /* الذكاء الاصطناعي */
+        .ai-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .ai-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        /* الفوتر */
+        footer {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+        
+            object-fit: cover;
+        }
+        
+        .footer-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-content p {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .footer-social {
+            margin: 2rem 0;
+        }
+        
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            margin: 0 12px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .footer-social a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* الصفحات */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* التجاوب */
+        @media (max-width: 992px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .brand {
+                margin-bottom: 1rem;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav a, nav button {
+                margin: 5px;
+                font-size: 0.9rem;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .gallery-item, .course-card {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            body {
+                padding-top: 130px;
+            }
+            
+            .hero {
+                padding: 2rem 1rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .video-wrapper iframe {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الهيدر -->
+    <header>
+        <div class="brand">
+            <div class="logo"><img src="file:///C:/Users/workstation/Downloads/Untitled%20design.png" alt="Together Logo"></div>
+            
+        </div>
+        <nav>
+            <a href="#" class="nav-link" data-page="home" data-translate="nav-home">الرئيسية</a>
+            <a href="#" class="nav-link" data-page="courses" data-translate="nav-courses">الكورسات</a>
+            <a href="#" class="nav-link" data-page="about" data-translate="nav-about">عنّا</a>
+            <a href="#" class="nav-link" data-page="contact" data-translate="nav-contact">تواصل</a>
+            <a href="#" class="nav-link" data-page="ai" id="ai-btn" data-translate="ai-btn">جرّب الذكاء الاصطناعي</a>
+            <button onclick="switchLang()">🌐</button>
+        </nav>
+    </header>
+
+    <!-- المحتوى الرئيسي -->
+    <main>
+        <!-- الصفحة الرئيسية -->
+        <div id="home-page" class="page active">
+            <section>
+                <div class="hero">
+                    <div class="hero-content">
+                        <h2 data-translate="welcome"></h2>
+                        <p data-translate="intro-short"></p>
+                    </div>
+                </div>
+
+                <h2 data-translate="why-together">لماذا Together؟</h2>
+                <p data-translate="intro">في السنين الأخيرة بقى في انتشار كبير جدًا للمنصات التعليمية أونلاين، وده راجع لعدة أسباب مهمة. أول سبب إن العالم بيتغير بسرعة، والمهارات اللي كانت مطلوبة من ٥ سنين مش هي نفسها اللي مطلوبة دلوقتي. فبقى لازم أي شخص يطور نفسه باستمرار علشان يواكب السوق. كمان الإنترنت سهّل الوصول للمعرفة بشكل غير مسبوق، أي حد عنده موبايل أو كمبيوتر يقدر يتعلم من أفضل الخبراء في العالم وهو قاعد في بيته. ده خلى التعليم مش مقتصر على الجامعات أو المراكز التقليدية. الشركات كمان بدأت تعتمد على المنصات دي كطريقة لتدريب الموظفين بكفاءة أعلى وتكلفة أقل. وده ساعد في زيادة انتشارها وتطورها. وأخيرًا، المنصات وفرت مرونة كبيرة، فالمتعلم يقدر يختار الوقت المناسب ليه ويتقدم حسب سرعته، وده شجع ملايين الناس إنهم يدخلوا المجال ده.</p>
+                
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="التعلم الإلكتروني">
+                        <div class="gallery-caption" data-translate="gallery1">التعلم في أي وقت ومن أي مكان</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=c crop&w=600&q=80" alt="مهارات المستقبل">
+                        <div class="gallery-caption" data-translate="gallery2">اكتسب مهارات المستقبل</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1600267175161-cfaa711b4a81?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="مرونة كاملة">
+                        <div class="gallery-caption" data-translate="gallery3">مرونة كاملة في التعلم</div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-translate="importance-title">أهمية البرمجة والذكاء الاصطناعي</h2>
+                <p data-translate="importance">البرمجة هي لغة المستقبل. من خلالها بتقدر تحل مشكلات وتبني تطبيقات تغير حياتك. الذكاء الاصطناعي بيساعدك تتعلم أسرع وتطور حلول مبتكرة، والتسويق الإلكتروني بيوصل أفكارك ومنتجاتك للناس في كل مكان.</p>
+                
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="برمجة المستقبل">
+                        <div class="gallery-caption" data-translate="gallery4">برمجة المستقبل بين يديك</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="ذكاء اصطناعي">
+                        <div class="gallery-caption" data-translate="gallery5">الذكاء الاصطناعي يغير العالم</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="تسويق الكتروني">
+                        <div class="gallery-caption" data-translate="gallery6">التسويق الإلكتروني يوصل صوتك</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- صفحة الكورسات -->
+        <div id="courses-page" class="page">
+            <section>
+                <h2 data-translate="courses-title">كورساتنا المميزة</h2>
+                <p data-translate="courses-intro">نقدم لكم مجموعة من أفضل الكورسات في مجالات البرمجة، الذكاء الاصطناعي والتسويق الإلكتروني. جميع الكورسات مقدمة من خبراء في المجال مع متابعة مستمرة ودعم فني.</p>
+                
+                <div class="courses-container">
+                    <div class="course-card">
+                        <img src="https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="برمجة ويب">
+                        <div class="course-content">
+                            <h3 data-translate="course1-title">برمجة وتطوير الويب</h3>
+                            <p data-translate="course1-desc">تعلم كيفية بناء مواقع ويب تفاعلية وتطبيقات ويب متكاملة باستخدام أحدث التقنيات</p>
+                            <p><strong data-translate="duration">المدة:</strong> 8 <span data-translate="weeks">أسابيع</span></p>
+                            <p><strong data-translate="level">المستوى:</strong> <span data-translate="beginner-advanced">مبتدئ إلى متقدم</span></p>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="ذكاء اصطناعي">
+                        <div class="course-content">
+                            <h3 data-translate="course2-title">الذكاء الاصطناعي</h3>
+                            <p data-translate="course2-desc">اكتشف عالم الذكاء الاصطناعي وتعلم كيفية بناء نماذج ذكية وتطبيقات تعلم الآلة</p>
+                            <p><strong data-translate="duration">المدة:</strong> 10 <span data-translate="weeks">أسابيع</span></p>
+                            <p><strong data-translate="level">المستوى:</strong> <span data-translate="intermediate-advanced">متوسط إلى متقدم</span></p>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8f5a07a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="تسويق الكتروني">
+                        <div class="course-content">
+                            <h3 data-translate="course3-title">التسويق الإلكتروني</h3>
+                            <p data-translate="course3-desc">إتقن استراتيجيات التسويق الرقمي ووسائل التواصل الاجتماعي لتعزيز وجودك على الإنترنت</p>
+                            <p><strong data-translate="duration">المدة:</strong> 6 <span data-translate="weeks">أسابيع</span></p>
+                            <p><strong data-translate="level">المستوى:</strong> <span data-translate="beginner-intermediate">مبتدئ إلى متوسط</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-translate="other-courses">كورسات أخرى</h2>
+                <div class="courses-container">
+                    <div class="course-card">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="تطبيقات الجوال">
+                        <div class="course-content">
+                            <h3 data-translate="course4-title">تطوير تطبيقات الجوال</h3>
+                            <p data-translate="course4-desc">تعلم بناء تطبيقات Android و iOS باستخدام أحدث التقنيات والأطر</p>
+                            <p><strong data-translate="duration">المدة:</strong> 9 <span data-translate="weeks">أسابيع</span></p>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="علم البيانات">
+                        <div class="course-content">
+                            <h3 data-translate="course5-title">علم البيانات وتحليلها</h3>
+                            <p data-translate="course5-desc">إحترف تحليل البيانات وتعلم كيفية استخراج insights قيّمة منها</p>
+                            <p><strong data-translate="duration">المدة:</strong> 12 <span data-translate="weeks">أسبوع</span></p>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="التصميم الجرافيكي">
+                        <div class="course-content">
+                            <h3 data-translate="course6-title">التصميم الجرافيكي والمونتاج</h3>
+                            <p data-translate="course6-desc">تعلم أساسيات التصميم والمونتاج باستخدام برامج Adobe المختلفة</p>
+                            <p><strong data-translate="duration">المدة:</strong> 7 <span data-translate="weeks">أسابيع</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- صفحة عنّا -->
+        <div id="about-page" class="page">
+            <section>
+                <h2 data-translate="about-title">فريق Together</h2>
+                <p data-translate="about-text">نحن فريق من الشباب المتحمسين الذين يجمعهم الشغف بالتعليم والتكنولوجيا. نعمل معًا لتحقيق رؤيتنا في جعل التعليم الرقمي متاحًا للجميع وبجودة عالية.</p>
+                
+                <div class="team-container">
+                    <!-- عمر -->
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="عمر">
+                        <h3 data-translate="omar-name">عمر</h3>
+                        <div class="role" data-translate="omar-role">مطور الواجهة الأمامية</div>
+                        <div class="bio" data-translate="omar-bio">مطور واجهات مستخدم مبتكر، متخصص في إنشاء تجارب ويب تفاعلية وسلسة. يجلب الأفكار إلى الحياة من خلال مهاراته في HTML، CSS، وJavaScript.</div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- جنات -->
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=c crop&w=600&q=80" alt="جنات">
+                        <h3 data-translate="jenat-name">جنات</h3>
+                        <div class="role" data-translate="jenat-role">مصممة تجربة المستخدم</div>
+                        <div class="bio" data-translate="jenat-bio">مصممة موهوبة تركز على إنشاء تجارب مستخدم استثنائية. تجمع بين الجماليات والوظائف لضمان أن تكون كل تفاعل مع منصتنا بديهيًا وممتعًا.</div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-behance"></i></a>
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- لوجين -->
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="لوجين">
+                        <h3 data-translate="logeen-name">لوجين</h3>
+                        <div class="role" data-translate="logeen-role">مطورة الذكاء الاصطناعي</div>
+                        <div class="bio" data-translate="logeen-bio">خبيرة في الذكاء الاصطناعي وتعلم الآلة، تقود تطوير النماذج الذكية في منصتنا. تهدف إلى جعل التعليم أكثر تخصيصًا وتكيفًا مع احتياجات كل متعلم.</div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-medium"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- روان -->
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="روان">
+                        <h3 data-translate="rawan-name">روان</h3>
+                        <div class="role" data-translate="rawan-role">مديرة المحتوى التعليمي</div>
+                        <div class="bio" data-translate="rawan-bio">منظمة المحتوى التعليمي وتضمن تقديم المعلومات بأسلوب واضح وجذاب. تعمل على تحويل المفاهيم المعقدة إلى دروس سهلة الفهم وممتعة للمتعلمين.</div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-translate="vision-title">رؤيتنا</h2>
+                <p data-translate="vision-text">نحن نؤمن بأن التعليم هو أساس تقدم الأمم، ونسعى لتقديم تعليم تقني عالي الجودة للشباب العربي لتمكينهم من المنافسة في سوق العمل العالمي. من خلال منصتنا، نهدف إلى بناء مجتمع تعليمي تفاعلي حيث يمكن للجميع الوصول إلى المعرفة وتطوير مهاراتهم في مجالات التكنولوجيا والبرمجة.</p>
+                
+                <p data-translate="vision-text2">فريقنا يعمل بتعاون وثيق لضمان أن تكون تجربة التعلم على منصتنا غنية وشاملة، مع تقديم محتوى حديث ومتابعة مستمرة للطلاب لتحقيق أقصى استفادة من رحلتهم التعليمية.</p>
+            </section>
+        </div>
+
+        <!-- صفحة تواصل -->
+        <div id="contact-page" class="page">
+            <section>
+                <h2 data-translate="contact-title">تواصل معنا</h2>
+                <p data-translate="contact-text">تقدر تتواصل مباشرة عبر واتساب. فريق الدعم متاح للإجابة على استفساراتك من الساعة 9 صباحاً حتى 5 مساءً.</p>
+                
+                <div class="text-center">
+                    <a href="https://wa.me/201069319319" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> <span data-translate="whatsapp-btn">تواصل معنا على واتساب</span>
+                    </a>
+                </div>
+            </section>
+
+            <section>
+                <h2 data-translate="contact-form-title">أو اترك رسالة</h2>
+                <div class="contact-form">
+                    <div class="form-group">
+                        <label for="name" data-translate="name-label">الاسم بالكامل</label>
+                        <input type="text" id="name" data-translate="name-placeholder" placeholder="ادخل اسمك هنا">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-translate="email-label">البريد الإلكتروني</label>
+                        <input type="email" id="email" data-translate="email-placeholder" placeholder="ادخل بريدك الإلكتروني">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-translate="message-label">الرسالة</label>
+                        <textarea id="message" data-translate="message-placeholder" placeholder="اكتب رسالتك هنا..."></textarea>
+                    </div>
+                    <button class="submit-btn" data-translate="submit-btn">إرسال الرسالة</button>
+                </div>
+            </section>
+            
+            <section>
+                <h2 data-translate="contact-info">معلومات الاتصال</h2>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="الدعم الفني">
+                        <div class="gallery-caption" data-translate="gallery7">الدعم الفني والاستشارات</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="الاجتماعات">
+                        <div class="gallery-caption" data-translate="gallery8">اجتماعات مباشرة مع المدربين</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="مجتمع التعلم">
+                        <div class="gallery-caption" data-translate="gallery9">مجتمع تعلم تفاعلي</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- صفحة الذكاء الاصطناعي -->
+        <div id="ai-page" class="page">
+            <section>
+                <h2 data-translate="ai-title">واجهة الذكاء الاصطناعي</h2>
+                <p data-translate="ai-desc">جرّب أحدث تقنيات الذكاء الاصطناعي للحصول على إجابات لاستفساراتك التعليمية.</p>
+                
+                <div class="ai-container">
+                    <input type="text" id="ai-input" class="ai-input" data-translate="ai-placeholder" placeholder="اكتب سؤالك هنا...">
+                    <button onclick="fakeAI()" class="submit-btn" data-translate="ai-send">إرسال السؤال</button>
+                </div>
+                <p id="ai-output" style="margin-top: 20px; padding: 15px; background: #e8f5e9; border-radius: 8px; display: none;"></p>
+            </section>
+
+            <section>
+                <h2 data-translate="ai-how-title">كيف يعمل الذكاء الاصطناعي لدينا؟</h2>
+                <p data-translate="ai-how-desc">نظام الذكاء الاصطناعي الخاص بنا يعتمد على أحدث تقنيات معالجة اللغة الطبيعية لفهم أسئلتك وتقديم إجابات دقيقة وذات صلة بمجال التعليم التقني.</p>
+                
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="فهم الأسئلة">
+                        <div class="gallery-caption" data-translate="gallery10">فهم الأسئلة وتفسيرها</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="تحليل المحتوى">
+                        <div class="gallery-caption" data-translate="gallery11">تحليل المحتوى التعليمي</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="توليد الإجابات">
+                        <div class="gallery-caption" data-translate="gallery12">توليد إجابات دقيقة وذات صلة</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="footer-content">
+            <img src="file:///C:/Users/workstation/Downloads/WhatsApp_Image_2025-09-08_at_20.32.35_e616d466-removebg-preview%20(1).png" alt="Together Logo" class="footer-logo">
+            <h3 data-translate="brand">Together</h3>
+            <p data-translate="footer-desc">منصة تعليمية تهدف إلى تمكين الشباب العربي من مهارات المستقبل في مجالات التكنولوجيا والبرمجة</p>
+            
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            
+            <div class="copyright" data-translate="copyright">
+                © 2023 Together. جميع الحقوق محفوظة
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ترجمات الموقع
+        const translations = {
+            ar: {
+                'brand': 'Together',
+                'nav-home': 'الرئيسية',
+                'nav-courses': 'الكورسات',
+                'nav-about': 'عنّا',
+                'nav-contact': 'تواصل',
+                
+                'why-together': 'لماذا Together؟',
+                'intro': `في السنين الأخيرة بقى في انتشار كبير جدًا للمنصات التعليمية أونلاين، وده راجع لعدة أسباب مهمة. أول سبب إن العالم بيتغير بسرعة، والمهارات اللي كانت مطلوبة من ٥ سنين مش هي نفسها اللي مطلوبة دلوقتي. فبقى لازم أي شخص يطور نفسه باستمرار علشان يواكب السوق. كمان الإنترنت سهّل الوصول للمعرفة بشكل غير مسبوق، أي حد عنده موبايل أو كمبيوتر يقدر يتعلم من أفضل الخبراء في العالم وهو قاعد في بيته. ده خلى التعليم مش مقتصر على الجامعات أو المراكز التقليدية. الشركات كمان بدأت تعتمد على المنصات دي كطريقة لتدريب الموظفين بكفاءة أعلى وتكلفة أقل. وده ساعد في زيادة انتشارها وتطورها. وأخيرًا، المنصات وفرت مرونة كبيرة، فالمتعلم يقدر يختار الوقت المناسب ليه ويتقدم حسب سرعته، وده شجع ملايين الناس إنهم يدخلوا المجال ده.`,
+                'importance-title': 'أهمية البرمجة والذكاء الاصطناعي',
+                'importance': 'البرمجة هي لغة المستقبل. من خلالها بتقدر تحل مشكلات وتبني تطبيقات تغير حياتك. الذكاء الاصطناعي بيساعدك تتعلم أسرع وتطور حلول مبتكرة، والتسويق الإلكتروني بيوصل أفكارك ومنتجاتك للناس في كل مكان.',
+                'courses-title': 'كورساتنا المميزة',
+                'courses-intro': 'نقدم لكم مجموعة من أفضل الكورسات في مجالات البرمجة، الذكاء الاصطناعي والتسويق الإلكتروني. جميع الكورسات مقدمة من خبراء في المجال مع متابعة مستمرة ودعم فني.',
+                'course1-title': 'برمجة وتطوير الويب',
+                'course1-desc': 'تعلم كيفية بناء مواقع ويب تفاعلية وتطبيقات ويب متكاملة باستخدام أحدث التقنيات',
+                'course2-title': 'الذكاء الاصطناعي',
+                'course2-desc': 'اكتشف عالم الذكاء الاصطناعي وتعلم كيفية بناء نماذج ذكية وتطبيقات تعلم الآلة',
+                'course3-title': 'التسويق الإلكتروني',
+                'course3-desc': 'إتقن استراتيجيات التسويق الرقمي ووسائل التواصل الاجتماعي لتعزيز وجودك على الإنترنت',
+                'course4-title': 'تطوير تطبيقات الجوال',
+                'course4-desc': 'تعلم بناء تطبيقات Android و iOS باستخدام أحدث التقنيات والأطر',
+                'course5-title': 'علم البيانات وتحليلها',
+                'course5-desc': 'إحترف تحليل البيانات وتعلم كيفية استخراج insights قيّمة منها',
+                'course6-title': 'التصميم الجرافيكي والمونتاج',
+                'course6-desc': 'تعلم أساسيات التصميم والمونتاج باستخدام برامج Adobe المختلفة',
+                'duration': 'المدة:',
+                'weeks': 'أسابيع',
+                'level': 'المستوى:',
+                'beginner-advanced': 'مبتدئ إلى متقدم',
+                'intermediate-advanced': 'متوسط إلى متقدم',
+                'beginner-intermediate': 'مبتدئ إلى متوسط',
+                'other-courses': 'كورسات أخرى',
+                'about-title': 'فريق Together',
+                'about-text': 'نحن فريق من الشباب المتحمسين الذين يجمعهم الشغف بالتعليم والتكنولوجيا. نعمل معًا لتحقيق رؤيتنا في جعل التعليم الرقمي متاحًا للجميع وبجودة عالية.',
+                'omar-name': 'عمر',
+                'omar-role': 'مطور الواجهة الأمامية',
+                'omar-bio': 'مطور واجهات مستخدم مبتكر، متخصص في إنشاء تجارب ويب تفاعلية وسلسة. يجلب الأفكار إلى الحياة من خلال مهاراته في HTML، CSS، وJavaScript.',
+                'jenat-name': 'جنات',
+                'jenat-role': 'مصممة تجربة المستخدم',
+                'jenat-bio': 'مصممة موهوبة تركز على إنشاء تجارب مستخدم استثنائية. تجمع بين الجماليات والوظائف لضمان أن تكون كل تفاعل مع منصتنا بديهيًا وممتعًا.',
+                'logeen-name': 'لوجين',
+                'logeen-role': 'مطورة الذكاء الاصطناعي',
+                'logeen-bio': 'خبيرة في الذكاء الاصطناعي وتعلم الآلة، تقود تطوير النماذج الذكية في منصتنا. تهدف إلى جعل التعليم أكثر تخصيصًا وتكيفًا مع احتياجات كل متعلم.',
+                'rawan-name': 'روان',
+                'rawan-role': 'مديرة المحتوى التعليمي',
+                'rawan-bio': 'منظمة المحتوى التعليمي وتضمن تقديم المعلومات بأسلوب واضح وجذاب. تعمل على تحويل المفاهيم المعقدة إلى دروس سهلة الفهم وممتعة للمتعلمين.',
+                'vision-title': 'رؤيتنا',
+                'vision-text': 'نحن نؤمن بأن التعليم هو أساس تقدم الأمم، ونسعى لتقديم تعليم تقني عالي الجودة للشباب العربي لتمكينهم من المنافسة في سوق العمل العالمي. من خلال منصتنا، نهدف إلى بناء مجتمع تعليمي تفاعلي حيث يمكن للجميع الوصول إلى المعرفة وتطوير مهاراتهم في مجالات التكنولوجيا والبرمجة.',
+                'vision-text2': 'فريقنا يعمل بتعاون وثيق لضمان أن تكون تجربة التعلم على منصتنا غنية وشاملة، مع تقديم محتوى حديث ومتابعة مستمرة للطلاب لتحقيق أقصى استفادة من رحلتهم التعليمية.',
+                'contact-title': 'تواصل معنا',
+                'contact-text': 'تقدر تتواصل مباشرة عبر واتساب. فريق الدعم متاح للإجابة على استفساراتك من الساعة 9 صباحاً حتى 5 مساءً.',
+                'contact-form-title': 'أو اترك رسالة',
+                'name-label': 'الاسم بالكامل',
+                'name-placeholder': 'ادخل اسمك هنا',
+                'email-label': 'البريد الإلكتروني',
+                'email-placeholder': 'ادخل بريدك الإلكتروني',
+                'message-label': 'الرسالة',
+                'message-placeholder': 'اكتب رسالتك هنا...',
+                'submit-btn': 'إرسال الرسالة',
+                'contact-info': 'معلومات الاتصال',
+                'whatsapp-btn': 'تواصل معنا على واتساب',
+                'ai-btn': 'جرّب الذكاء الاصطناعي',
+                'ai-title': 'واجهة الذكاء الاصطناعي',
+                'ai-desc': 'جرّب أحدث تقنيات الذكاء الاصطناعي للحصول على إجابات لاستفساراتك التعليمية.',
+                'ai-placeholder': 'اكتب سؤالك هنا...',
+                'ai-send': 'إرسال السؤال',
+                'ai-how-title': 'كيف يعمل الذكاء الاصطناعي لدينا؟',
+                'ai-how-desc': 'نظام الذكاء الاصطناعي الخاص بنا يعتمد على أحدث تقنيات معالجة اللغة الطبيعية لفهم أسئلتك وتقديم إجابات دقيقة وذات صلة بمجال التعليم التقني.',
+                'gallery1': 'التعلم في أي وقت ومن أي مكان',
+                'gallery2': 'اكتسب مهارات المستقبل',
+                'gallery3': 'مرونة كاملة في التعلم',
+                'gallery4': 'برمجة المستقبل بين يديك',
+                'gallery5': 'الذكاء الاصطناعي يغير العالم',
+                'gallery6': 'التسويق الإلكتروني يوصل صوتك',
+                'gallery7': 'الدعم الفني والاستشارات',
+                'gallery8': 'اجتماعات مباشرة مع المدربين',
+                'gallery9': 'مجتمع تعلم تفاعلي',
+                'gallery10': 'فهم الأسئلة وتفسيرها',
+                'gallery11': 'تحليل المحتوى التعليمي',
+                'gallery12': 'توليد إجابات دقيقة وذات صلة',
+                'footer-desc': 'منصة تعليمية تهدف إلى تمكين الشباب العربي من مهارات المستقبل في مجالات التكنولوجيا والبرمجة',
+                'copyright': '© 2023 Together. جميع الحقوق محفوظة'
+            },
+            en: {
+                'brand': 'Together',
+                'nav-home': 'Home',
+                'nav-courses': 'Courses',
+                'nav-about': 'About',
+                'nav-contact': 'Contact',
+                'why-together': 'Why Together?',
+                'intro': `In recent years, there has been a very large spread of online learning platforms, and this is due to several important reasons. The first reason is that the world is changing rapidly, and the skills that were required five years ago are not the same as those required today. Therefore, every person must continuously develop themselves to keep up with the market. Also, the internet has made access to knowledge easier than ever; anyone with a mobile phone or computer can learn from the best experts in the world while sitting at home. This has made education no longer limited to universities or traditional centers. Companies have also started to rely on these platforms as a way to train employees more efficiently and at lower cost. This helped increase their reach and development. Finally, platforms have provided great flexibility, so learners can choose the time that suits them and progress at their own pace, which has encouraged millions of people to join.`,
+                'importance-title': 'Importance of Programming and AI',
+                'importance': 'Programming is the language of the future. With it you can solve problems and build apps that change lives. AI helps you learn faster and create innovative solutions, while digital marketing connects your ideas and products with people everywhere.',
+                'courses-title': 'Our Featured Courses',
+                'courses-intro': 'We offer you a set of the best courses in the fields of programming, artificial intelligence and digital marketing. All courses are presented by experts in the field with continuous follow-up and technical support.',
+                'course1-title': 'Web Programming & Development',
+                'course1-desc': 'Learn how to build interactive websites and complete web applications using the latest technologies',
+                'course2-title': 'Artificial Intelligence',
+                'course2-desc': 'Discover the world of artificial intelligence and learn how to build smart models and machine learning applications',
+                'course3-title': 'Digital Marketing',
+                'course3-desc': 'Master digital marketing strategies and social media to enhance your online presence',
+                'course4-title': 'Mobile App Development',
+                'course4-desc': 'Learn to build Android and iOS applications using the latest technologies and frameworks',
+                'course5-title': 'Data Science & Analysis',
+                'course5-desc': 'Master data analysis and learn how to extract valuable insights from data',
+                'course6-title': 'Graphic Design & Editing',
+                'course6-desc': 'Learn the basics of design and editing using various Adobe programs',
+                'duration': 'Duration:',
+                'weeks': 'weeks',
+                'level': 'Level:',
+                'beginner-advanced': 'Beginner to Advanced',
+                'intermediate-advanced': 'Intermediate to Advanced',
+                'beginner-intermediate': 'Beginner to Intermediate',
+                'other-courses': 'Other Courses',
+                'about-title': 'Together Team',
+                'about-text': 'We are a team of enthusiastic young people united by a passion for education and technology. We work together to achieve our vision of making digital education accessible to everyone with high quality.',
+                'omar-name': 'Omar',
+                'omar-role': 'Frontend Developer',
+                'omar-bio': 'Innovative UI developer specializing in creating interactive and smooth web experiences. Brings ideas to life through his skills in HTML, CSS, and JavaScript.',
+                'jenat-name': 'Jenat',
+                'jenat-role': 'UX Designer',
+                'jenat-bio': 'Talented designer focused on creating exceptional user experiences. Combines aesthetics and functionality to ensure every interaction with our platform is intuitive and enjoyable.',
+                'logeen-name': 'Logeen',
+                'logeen-role': 'AI Developer',
+                'logeen-bio': 'Expert in artificial intelligence and machine learning, leads the development of smart models in our platform. Aims to make education more personalized and adaptable to the needs of each learner.',
+                'rawan-name': 'Rawan',
+                'rawan-role': 'Educational Content Manager',
+                'rawan-bio': 'Organizes educational content and ensures information is presented in a clear and engaging manner. Works to transform complex concepts into easy-to-understand and enjoyable lessons for learners.',
+                'vision-title': 'Our Vision',
+                'vision-text': 'We believe that education is the foundation of nations progress, and we strive to provide high-quality technical education to Arab youth to enable them to compete in the global labor market. Through our platform, we aim to build an interactive learning community where everyone can access knowledge and develop their skills in technology and programming.',
+                'vision-text2': 'Our team works in close cooperation to ensure that the learning experience on our platform is rich and comprehensive, with up-to-date content and continuous follow-up for students to get the most out of their educational journey.',
+                'contact-title': 'Contact Us',
+                'contact-text': 'You can contact us directly via WhatsApp. The support team is available to answer your inquiries from 9 am to 5 pm.',
+                'contact-form-title': 'Or leave a message',
+                'name-label': 'Full Name',
+                'name-placeholder': 'Enter your name here',
+                'email-label': 'Email Address',
+                'email-placeholder': 'Enter your email address',
+                'message-label': 'Message',
+                'message-placeholder': 'Write your message here...',
+                'submit-btn': 'Send Message',
+                'contact-info': 'Contact Information',
+                'whatsapp-btn': 'Contact us on WhatsApp',
+                'ai-btn': 'Try AI',
+                'ai-title': 'AI Interface',
+                'ai-desc': 'Try the latest artificial intelligence technologies to get answers to your educational inquiries.',
+                'ai-placeholder': 'Type your question here...',
+                'ai-send': 'Send Question',
+                'ai-how-title': 'How does our AI work?',
+                'ai-how-desc': 'Our artificial intelligence system relies on the latest natural language processing technologies to understand your questions and provide accurate answers relevant to the field of technical education.',
+                'gallery1': 'Learning anytime, anywhere',
+                'gallery2': 'Acquire future skills',
+                'gallery3': 'Complete learning flexibility',
+                'gallery4': 'Future programming at your fingertips',
+                'gallery5': 'Artificial intelligence is changing the world',
+                'gallery6': 'Digital marketing amplifies your voice',
+                'gallery7': 'Technical support and consultations',
+                'gallery8': 'Direct meetings with trainers',
+                'gallery9': 'Interactive learning community',
+                'gallery10': 'Understanding and interpreting questions',
+                'gallery11': 'Analysis of educational content',
+                'gallery12': 'Generating accurate and relevant answers',
+                'footer-desc': 'An educational platform aimed at empowering Arab youth with future skills in technology and programming',
+                'copyright': '© 2023 Together. All rights reserved'
+            }
+        };
+
+        let currentLang = 'ar';
+
+        // وظيفة التبديل بين اللغات
+        function switchLang() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            
+            // تحديث النصوص
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
+                }
+            });
+            
+            // تحديث العناصر النصية الأخرى
+            document.querySelectorAll('input[data-translate], textarea[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[currentLang][key]) {
+                    el.placeholder = translations[currentLang][key];
+                }
+            });
+            
+            // تغيير اتجاه الصفحة
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = currentLang;
+            
+            // إضافة تأثير سلس لتغيير اللغة
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                document.body.style.opacity = 1;
+            }, 300);
+        }
+
+        // وظيفة التبديل بين الصفحات
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetPage = this.getAttribute('data-page');
+                showPage(targetPage);
+            });
+        });
+
+        function showPage(pageId) {
+            // إخفاء جميع الصفحات
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // إظهار الصفحة المحددة
+            document.getElementById(`${pageId}-page`).classList.add('active');
+            
+            // التمرير إلى الأعلى
+            window.scrollTo(0, 0);
+        }
+
+        // وظيفة الذكاء الاصطناعي
+        function fakeAI() {
+            const input = document.getElementById('ai-input').value;
+            const output = document.getElementById('ai-output');
+            
+            if (input.trim() === '') {
+                output.innerText = currentLang === 'ar' ? 
+                    "الرجاء كتابة سؤال أولاً" : 
+                    "Please type a question first";
+            } else {
+                output.innerText = currentLang === 'ar' ? 
+                    "رد الذكاء الاصطناعي: هذا نموذج تجريبي، في التطبيق الحقيقي سيتم تحليل سؤالك وإعطاء إجابة مناسبة. سؤالك هو: " + input : 
+                    "AI Response: This is a demo model. In the real application, your question will be analyzed and an appropriate answer will be provided. Your question is: " + input;
+            }
+            
+            output.style.display = 'block';
+        }
+
+        // تهيئة الصفحة عند التحميل
+        document.addEventListener('DOMContentLoaded', function() {
+            // تعيين اللغة الافتراضية
+            switchLang();
+            
+            // إظهار تأثير التحميل
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                document.body.style.opacity = 1;
+            }, 300);
+        });
+    </script>
+</body>
+</html>
