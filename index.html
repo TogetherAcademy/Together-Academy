@@ -75,6 +75,7 @@
         nav {
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
         }
         
         nav a, nav button {
@@ -149,7 +150,6 @@
             transition: all 0.3s;
             font-weight: bold;
             margin-top: 10px;
-             margin-left: 400px;
             box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
         }
         
@@ -167,7 +167,7 @@
         /* قسم البطل */
         .hero {
             text-align: center;
-            padding: 10rem 2rem; /* بدل 4rem - زود المسافة الطولية */
+            padding: 10rem 2rem;
             background: linear-gradient(rgba(79, 195, 247, 0.1), rgba(129, 199, 132, 0.1)),
                         url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
             border-radius: 12px;
@@ -175,11 +175,6 @@
             margin-bottom: 3rem;
             position: relative;
         }
-
-
-
-        
-        
         
         .hero-content {
             position: relative;
@@ -461,7 +456,6 @@
             height: 100px;
             border-radius: 50%;
             margin: 0 auto 1.5rem;
-        
             object-fit: cover;
         }
         
@@ -523,7 +517,24 @@
             to { opacity: 1; }
         }
         
-        /* التجاوب */
+        /* التجاوب - تحسينات جديدة */
+        .text-center {
+            text-align: center;
+        }
+        
+        /* تحسينات للهواتف */
+        @media (max-width: 1200px) {
+            .brand h1 {
+                font-size: 1.5rem;
+            }
+            
+            nav a, nav button {
+                font-size: 0.9rem;
+                padding: 6px 10px;
+                margin: 0 5px;
+            }
+        }
+        
         @media (max-width: 992px) {
             header {
                 flex-direction: column;
@@ -532,6 +543,13 @@
             
             .brand {
                 margin-bottom: 1rem;
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .brand .logo img {
+                margin-left: 0;
+                margin-bottom: 10px;
             }
             
             nav {
@@ -542,6 +560,10 @@
             nav a, nav button {
                 margin: 5px;
                 font-size: 0.9rem;
+            }
+            
+            .hero {
+                padding: 6rem 1.5rem;
             }
             
             .hero h2 {
@@ -556,15 +578,19 @@
                 width: 100%;
                 max-width: 400px;
             }
+            
+            .whatsapp-btn {
+                margin-left: 0 !important;
+            }
         }
         
-        @media (max-width: 576px) {
+        @media (max-width: 768px) {
             body {
-                padding-top: 130px;
+                padding-top: 150px;
             }
             
             .hero {
-                padding: 2rem 1rem;
+                padding: 4rem 1rem;
             }
             
             .hero h2 {
@@ -584,7 +610,90 @@
             }
             
             .video-wrapper iframe {
+                height: 300px;
+            }
+            
+            .team-member {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .footer-social a {
+                margin: 0 8px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            body {
+                padding-top: 180px;
+            }
+            
+            header {
+                padding: 0.8rem;
+            }
+            
+            .brand h1 {
+                font-size: 1.3rem;
+            }
+            
+            nav a, nav button {
+                font-size: 0.8rem;
+                padding: 5px 8px;
+                margin: 3px;
+            }
+            
+            .hero {
+                padding: 3rem 1rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.6rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 1rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+            
+            .video-wrapper iframe {
                 height: 250px;
+            }
+            
+            .gallery {
+                gap: 15px;
+            }
+            
+            .gallery-item, .course-card {
+                width: 100%;
+            }
+            
+            .footer-social a {
+                margin: 0 5px;
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+            
+            .footer-content h3 {
+                font-size: 1.5rem;
+            }
+            
+            .footer-content p {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -594,7 +703,7 @@
     <header>
         <div class="brand">
             <div class="logo"><img src="https://github.com/TogetherAcademy/Together-Academy/raw/main/logo.jpg" alt="Together Logo"></div>
-            
+            <h1>Together</h1>
         </div>
         <nav>
             <a href="#" class="nav-link" data-page="home" data-translate="nav-home">الرئيسية</a>
@@ -613,8 +722,8 @@
             <section>
                 <div class="hero">
                     <div class="hero-content">
-                        <h2 data-translate="welcome"></h2>
-                        <p data-translate="intro-short"></p>
+                        <h2 data-translate="welcome">مرحباً بكم في Together</h2>
+                        <p data-translate="intro-short">منصة التعليم الإلكتروني الرائدة في العالم العربي</p>
                     </div>
                 </div>
 
@@ -627,7 +736,7 @@
                         <div class="gallery-caption" data-translate="gallery1">التعلم في أي وقت ومن أي مكان</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=c crop&w=600&q=80" alt="مهارات المستقبل">
+                        <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="مهارات المستقبل">
                         <div class="gallery-caption" data-translate="gallery2">اكتسب مهارات المستقبل</div>
                     </div>
                     <div class="gallery-item">
@@ -748,7 +857,7 @@
 
                     <!-- جنات -->
                     <div class="team-member">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=c crop&w=600&q=80" alt="جنات">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="جنات">
                         <h3 data-translate="jenat-name">جنات</h3>
                         <div class="role" data-translate="jenat-role">مصممة تجربة المستخدم</div>
                         <div class="bio" data-translate="jenat-bio">مصممة موهوبة تركز على إنشاء تجارب مستخدم استثنائية. تجمع بين الجماليات والوظائف لضمان أن تكون كل تفاعل مع منصتنا بديهيًا وممتعًا.</div>
